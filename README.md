@@ -2,7 +2,7 @@
 
 This is a class assignment for my Backend 2 class for the Fall 2023
 
-To run this application you will need to type `node app.js` in the terminal. Then you will see three forms to add, update, and delete contacts. You can use Postman or Thunder client to interact with the api.
+To run this application you will need to type `node server.js` in the terminal. Then you will see three forms to add, update, and delete contacts. You can use Postman or Thunder client to interact with the api.
 
 ## Here are the instructions
 
