@@ -2,94 +2,115 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible content='IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Directory</title>
-    <link rel="stylesheet" href="styles.css">	
-    <script src="../routes/api/contacts.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible content='IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Directory</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>Contact Directory</h1>
+  <h1>Contact Directory</h1>
 
-    <div id="contact-details">
-        <h2>Contact Details</h2>
-        <div id="contact-info"></div>
-    </div>
-    <div>
-        <p class="id">Id</p>
-        <p class="name">Name</p>
-        <p class="phone">Phone</p>
-        <p class="email">Email</p>
-        <p class="address">Address</p>
-    </div>
+  <div id="contact-details">
+    <h2>Contact Details</h2>
+  </div>
+  <div>
+    <p class="id">Id</p>
+    <p class="name">Name</p>
+    <p class="phone">Phone</p>
+    <p class="email">Email</p>
+    <p class="address">Address</p>
+  </div>
+  <div id="contact-info">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="contact"></script>
     <script>
-      $(document).ready(function() {
-        $.ajax({
-          url: '../routes/api.contacts.js',
-          method: 'GET',
-          dataType: 'json',
-          success: function(data) {
-            // Process the received data and display it on the page
-            $('data.contacts').html(JSON.stringify(data));
-          },
-          error: function(xhr, status, error) {
+      $(document).ready(function () {
+        $.getJSON('http://localhost:3000/contact', function (data) {
+          // Clear the existing contact info
+          $('#contact-info').empty();
+
+          // Loop through each contact in the data
+          data.forEach(function (contact) {
+            // Create a table row for the contact
+            let row = $('<div class="contact-row"></div>');
+
+            // Create a separate div for each contact detail
+            let id = $('<div class="contact-detail">' + contact.id + '</div>');
+            let name = $('<div class="contact-detail">' + contact.name + '</div>');
+            let phone = $('<div class="contact-detail">' + contact.phone + '</div>');
+            let email = $('<div class="contact-detail">' + contact.email + '</div>');
+            let address = $('<div class="contact-detail">' + contact.address + '</div>');
+
+            // Append each contact detail to the row
+            row.append(id);
+            row.append(name);
+            row.append(phone);
+            row.append(email);
+            row.append(address);
+
+
+            // Append the row to the contact-info div
+            $('#contact-info').append(row);
+          });
+        })
+          .fail(function (xhr, status, error) {
             console.error('Error fetching router data:', error);
-          }
-        });
+          });
       });
     </script>
-  
-    <div id="add-contact">
-        <h2>Add Contact</h2>
-        <form class="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+  </div>
+  <div id="add-contact">
+    <h2>Add Contact</h2>
+    <form class="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
 
-            <label for="phone">Phone Number:</label>
-            <input type="text" id="phone" name="phone" required>
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" name="phone" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
 
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address">
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address">
 
-            <button type="submit" class="button">Add</button>
-        </form>
-    </div>
+      <button type="submit" class="button">Add</button>
+    </form>
+  </div>
 
-    <div id="update-contact">
-        <h2>Update Contact</h2>
-        <form class="contact-form">
-            <label for="id">Id</label>
-            <input type="text" id="id" name="id">
+  <div id="update-contact">
+    <h2>Update Contact</h2>
+    <form class="contact-form">
+      <label for="id">Id</label>
+      <input type="text" id="id" name="id">
 
-            <label for="update-name">Name:</label>
-            <input type="text" id="update-name" name="update-name" required>
+      <label for="update-name">Name:</label>
+      <input type="text" id="update-name" name="update-name" required>
 
-            <label for="update-phone">Phone Number:</label>
-            <input type="text" id="update-phone" name="update-phone" required>
+      <label for="update-phone">Phone Number:</label>
+      <input type="text" id="update-phone" name="update-phone" required>
 
-            <label for="update-email">Email:</label>
-            <input type="email" id="update-email" name="update-email">
+      <label for="update-email">Email:</label>
+      <input type="email" id="update-email" name="update-email">
 
-            <label for="update-address">Address:</label>
-            <input type="text" id="update-address" name="update-address">
+      <label for="update-address">Address:</label>
+      <input type="text" id="update-address" name="update-address">
 
-            <button type="submit" class="button">Update</button>
-        </form>
-    </div>
+      <button type="submit" class="button">Update</button>
+    </form>
+  </div>
 
-    <div id="delete-contact">
-        <h2>Delete Contact</h2>
-        <form class="contact-form">
-            <label for="id">Contact ID:</label>
-            <input type="text" id="id" name="id" required>
+  <div id="delete-contact">
+    <h2>Delete Contact</h2>
+    <form class="contact-form">
+      <label for="id">Contact ID:</label>
+      <input type="text" id="id" name="id" required>
 
-            <button type="submit" class="button" id="deleteContact">Delete</button>
-        </form>
-    </div>
+      <button type="submit" class="button" id="deleteContact">Delete</button>
+    </form>
+  </div>
 </body>
+
 </html>

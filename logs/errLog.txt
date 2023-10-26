@@ -1,7 +1,0 @@
-10-25-2023	02:13:07 	 1ba257cb-127c-46ab-a9c1-7ae4f6fae2b5 	 Error ENOENT: no such file or directory, stat '/home/tgwarren/contactDirectory/public/index.html' 
-10-25-2023	03:04:18 	 27285fbb-fc64-4914-9337-74ae868fa065 	 TypeError Cannot read properties of undefined (reading 'id') 
-10-25-2023	03:08:26 	 f1f08014-f3ba-49e7-8331-a1e6c15c6514 	 TypeError Cannot read properties of undefined (reading 'id') 
-10-25-2023	03:09:26 	 06a2007e-60c0-49dd-8280-eaef12d9ca21 	 TypeError Cannot read properties of undefined (reading 'id') 
-10-25-2023	03:12:52 	 214bc29f-aea5-4d33-adc8-de8d1f8ff4b0 	 TypeError Cannot read properties of undefined (reading 'id') 
-10-25-2023	03:22:33 	 dffb2c82-e5f4-48f0-83d4-56e016bdc81d 	 TypeError Cannot read properties of undefined (reading 'id') 
-10-25-2023	03:23:23 	 1c960ad2-a637-424c-a546-377ed66bd2cc 	 TypeError Cannot read properties of undefined (reading 'id') 
