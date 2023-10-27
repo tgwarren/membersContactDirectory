@@ -1,6 +1,6 @@
 const express = require('express');
-const router = express();
-const contactsController = require('../../controller/contactsController');
+const router = express.Router();
+const contactsController = require('../../controllers/contactsController');
 const validateContacts = require('../../middleware/validateContacts');
 
 
@@ -11,7 +11,8 @@ router.route('/')
     .delete(contactsController.deleteContact);
 
 router.use(validateContacts);
-    
-router.route('/:id').get(contactsController.getContact);
+
+router.route('/:id')
+    .get(contactsController.getContact);
 
 module.exports = router;

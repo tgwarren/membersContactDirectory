@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible content='IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Directory</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
@@ -24,10 +24,10 @@
   </div>
   <div id="contact-info">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="contact"></script>
+    <script src="contacts"></script>
     <script>
       $(document).ready(function () {
-        $.getJSON('http://localhost:3000/contact', function (data) {
+        $.getJSON('http://localhost:3000/contacts', function (data) {
           // Clear the existing contact info
           $('#contact-info').empty();
 

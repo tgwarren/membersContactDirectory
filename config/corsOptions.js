@@ -1,12 +1,13 @@
 //Cross-Orgin Resource Sharing(CORS)
 const whiteList = [
-  'http://127.0.0.1:5500',
-  'http://localhost:3000'
+  'https://www.yoursite.com',
+  'http://127.0.0.1:5500',// take out after developement
+  'http://localhost:3000' // take out after development
 ];
 
 const corsOptions = {
   origin: (origin, callback) => {
-    if (whiteList.indexOf(origin) !== -1 || !origin) {
+    if (whiteList.indexOf(origin) !== -1 || !origin) { //take out '!orgin' after development
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));

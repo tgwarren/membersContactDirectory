@@ -7,8 +7,6 @@ const validateContacts = async (req, res, next) => {
     const phoneRegex = /^[0-9]{10}$/
     const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 
-
-
     if (
         nameRegex.test(name) &&
         phoneRegex.test(phone) &&

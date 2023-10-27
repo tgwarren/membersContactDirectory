@@ -20,7 +20,7 @@ const createNewContact = (req, res) => {
         phone: req.body.phone,
         email: req.body.email,
         address: req.body.address,
-    };
+    }
     if (!newContact.name || !newContact.phone || !newContact.email) {
         return res
             .status(400)
@@ -65,7 +65,7 @@ const deleteContact = (req, res) => {
             .json({ 'message': `Contact ID ${req.body.id} is not found.` });
     };
     const filteredArray = data.contacts.filter(
-        cont => cont.id === parseInt(req.body.id)
+        cont => cont.id !== parseInt(req.body.id)
     );
     data.setContacts([...filteredArray]);
     res.json(data.contacts);
@@ -77,7 +77,7 @@ const getContact = (req, res) => {
         cont => cont.id === parseInt(req.params.id)
     );
     if (!contact) {
-        return res.status(400).json({ message: `Contact ID ${req.params.id} is not found.` });
+        return res.status(400).json({ 'message': `Contact ID ${req.params.id} is not found.` });
     }
     res.json(contact);
 }
