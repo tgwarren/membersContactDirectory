@@ -13,14 +13,14 @@
   <h1>Contact Directory</h1>
 
   <div id="contact-details">
-    <h2>Contact Details</h2>
+    <h2>Current Contacts</h2>
   </div>
-  <div>
-    <p class="id">Id</p>
-    <p class="name">Name</p>
-    <p class="phone">Phone</p>
-    <p class="email">Email</p>
-    <p class="address">Address</p>
+  <div class="contact-details">
+    <p>Id</p>
+    <p>Name</p>
+    <p>Phone</p>
+    <p>Email</p>
+    <p>Address</p>
   </div>
   <div id="contact-info">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -28,20 +28,18 @@
     <script>
       $(document).ready(function () {
         $.getJSON('http://localhost:3000/contacts', function (data) {
-          // Clear the existing contact info
-          $('#contact-info').empty();
 
           // Loop through each contact in the data
           data.forEach(function (contact) {
             // Create a table row for the contact
-            let row = $('<div class="contact-row"></div>');
+            let row = $('<div class="contact-details"></div>');
 
             // Create a separate div for each contact detail
-            let id = $('<div class="contact-detail">' + contact.id + '</div>');
-            let name = $('<div class="contact-detail">' + contact.name + '</div>');
-            let phone = $('<div class="contact-detail">' + contact.phone + '</div>');
-            let email = $('<div class="contact-detail">' + contact.email + '</div>');
-            let address = $('<div class="contact-detail">' + contact.address + '</div>');
+            let id = $('<div class="contact-details">' + contact.id + '</div>');
+            let name = $('<div class="contact-details">' + contact.name + '</div>');
+            let phone = $('<div class="contact-details">' + contact.phone + '</div>');
+            let email = $('<div class="contact-details">' + contact.email + '</div>');
+            let address = $('<div class="contact-details">' + contact.address + '</div>');
 
             // Append each contact detail to the row
             row.append(id);
@@ -61,54 +59,51 @@
       });
     </script>
   </div>
-  <div id="add-contact">
-    <h2>Add Contact</h2>
-    <form class="contact-form">
+  <div class="updates">
+    <form class="contact-form" id="add-contact" action="/contacts" method="POST">
+      <h2>Add Contact</h2>
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+      <input type="text" name="name" required>
 
       <label for="phone">Phone Number:</label>
-      <input type="text" id="phone" name="phone" required>
+      <input type="text" name="phone" required>
 
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email">
+      <input type="email" name="email" required>
 
       <label for="address">Address:</label>
-      <input type="text" id="address" name="address">
+      <input type="text" name="address">
 
-      <button type="submit" class="button">Add</button>
+    <button type="submit" id=add-contact class="button">Add</button> 
     </form>
-  </div>
 
-  <div id="update-contact">
-    <h2>Update Contact</h2>
-    <form class="contact-form">
+    <form class="contact-form" id="update-contact" action="/contacts" method="PUT">
+      <h2>Update Contact</h2>
       <label for="id">Id</label>
-      <input type="text" id="id" name="id">
+      <input type="text" name="id">
 
       <label for="update-name">Name:</label>
-      <input type="text" id="update-name" name="update-name" required>
+      <input type="text" name="update-name" required>
 
       <label for="update-phone">Phone Number:</label>
-      <input type="text" id="update-phone" name="update-phone" required>
+      <input type="text" name="update-phone" required>
 
       <label for="update-email">Email:</label>
-      <input type="email" id="update-email" name="update-email">
+      <input type="email" name="update-email">
 
       <label for="update-address">Address:</label>
-      <input type="text" id="update-address" name="update-address">
+      <input type="text" name="update-address">
 
-      <button type="submit" class="button">Update</button>
+    <button type="submit" id="update-contact" class="button">Update</button> 
     </form>
-  </div>
 
-  <div id="delete-contact">
-    <h2>Delete Contact</h2>
-    <form class="contact-form">
+    
+    <form class="contact-form" id="delete-contact" action="/contacts" method="DELETE">
+      <h2>Delete Contact</h2>
       <label for="id">Contact ID:</label>
-      <input type="text" id="id" name="id" required>
+      <input type="text" name="id" required>
 
-      <button type="submit" class="button" id="deleteContact">Delete</button>
+    <button type="submit" id="delete-contact" class="button">Delete</button> 
     </form>
   </div>
 </body>

@@ -17,6 +17,11 @@ h1{
   font-size: 70px;
 }
 
+h2{
+  font-family: 'Indie Flower', cursive;
+  font-size: 35px;
+}
+
 label{
   display: block;
   width: 100%;
@@ -33,12 +38,19 @@ input {
   box-sizing: border-box;
 }
 
-.button3{
-  color: hsl(328, 98%, 75%);
-  cursor: pointer;
+.contact-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 5px;
+  flex: 1;
 }
 
-div {
+.updates {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   padding: 20px;
@@ -46,34 +58,16 @@ div {
   text-align: center;
 }
 
-.id{
-  grid-column: 1 / span 1;
+#add-contact {
+  grid-column: 1 / span 2;
 }
 
-.name{
-  grid-column: 2 / span 1;
+#update-contact {
+  grid-column: 3 / span 2;
 }
 
-.phone{
-  grid-column: 3 / span 1;
-}
-
-.email{
-  grid-column: 4 / span 1;
-}
-
-.address{
-  grid-column: 5 / span 1;
-}
-
-@media screen and (max-width: 800px) {
-  h1{
-    font-size: 40px;
-  }
-  img{
-    width: 50%;
-    margin: 3%;
-  }
+#delete-contact {
+  grid-column: 5 / span 2;
 }
 
 .contact-form{
@@ -92,36 +86,18 @@ div {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 45%;
   cursor: pointer;
 }
 
-#contact-info{
-display: flex !important;
-flex-direction: row;
+@media screen and (max-width: 800px) {
+  h1{
+    font-size: 40px;
+  }
+  img{
+    width: 50%;
+    margin: 3%;
+  }
 }
-
-.contact-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-.contact-row p {
-  margin: 0;
-  padding: 5px;
-  flex: 1;
-}
-
-.contact-detail {
-  display: block !important;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
 
 @media screen and (max-width: 600px) {
   .button{

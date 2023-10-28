@@ -5,7 +5,6 @@ const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
 const cors = require('cors');
 const corsOptions = require('./config/corsOptions');
-const { register } = require('module');
 const PORT = process.env.PORT || 3000;
 
 //Custome Middleware Function
@@ -14,15 +13,14 @@ app.use(logger);
 //Cross Origin Resourse Sharing
 app.use(cors(corsOptions));
 
-//Built in middleware functions to handle urlencoded form data
-app.use(express.urlencoded({ extended: false }));
-
 //Built-in middleware for json
 app.use(express.json());
 
+//Built in middleware functions to handle urlencoded form data
+app.use(express.urlencoded({ extended: false }));
+
 //Serve the static files
 app.use('/', express.static(path.join(__dirname, '/public')));
-
 
 //routes
 app.use('/', require('./routes/root'));
