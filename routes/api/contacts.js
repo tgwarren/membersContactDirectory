@@ -12,7 +12,7 @@ router.route('/')
 
 router.use(validateContacts);
 
-router.route('/:id')
+router.route('/contacts/:id')
     .get(contactsController.getContact);
 
 module.exports = router;

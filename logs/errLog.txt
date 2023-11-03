@@ -1,8 +1,0 @@
-10-27-2023	07:44:56 	 1b1100a0-fc4a-4422-baaf-2e81f9f5987e 	 Error: Cannot find module 'html'
-Require stack:
-- /home/tgwarren/contactDirectory/node_modules/express/lib/view.js
-- /home/tgwarren/contactDirectory/node_modules/express/lib/application.js
-- /home/tgwarren/contactDirectory/node_modules/express/lib/express.js
-- /home/tgwarren/contactDirectory/node_modules/express/index.js
-- /home/tgwarren/contactDirectory/server.js 
-10-27-2023	08:24:28 	 70cd019c-0e9a-4d0c-a108-9fd304b01f6d 	 TypeError: data.setContacts.push is not a function 
