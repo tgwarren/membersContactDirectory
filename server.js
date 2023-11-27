@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -5,7 +6,12 @@ const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
 const cors = require('cors');
 const corsOptions = require('./config/corsOptions');
+const connectDB = require('./config/dbConfig');
+const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3000;
+
+//ConnectDB
+connectDB();
 
 //Custome Middleware Function
 app.use(logger);
@@ -38,9 +44,13 @@ app.all('*', (req, res) => {
     res.type('txt').send('404 Not Found');
   }
 })
-
+//Error Handler
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`Contact Directory is listening on port ${PORT}`)
+mongoose.connection.once('open', () => {
+  console.log('Connected to mongoDB');
+  app.listen(PORT, () => {
+    console.log(`Contact Directory is listening on port ${PORT}`)
+  });
 });
+

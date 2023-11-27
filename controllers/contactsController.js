@@ -1,85 +1,83 @@
-const data = {
-    contacts: require("../model/contacts.json"),
-    setContacts: function (data) {
-        this.contacts = data;
-    },
-}
+const Member = require('../model/Member');
+
 
 //Get all contacts
-const getAllContacts = (req, res) => {
-    res.json(data.contacts);
+const getAllContacts = async (req, res) => {
+    const members = await Member.find();
+    if (!members) { return res.status(400).json({ message: 'No Members found.' }) }
+    res.json(members)
 };
 
 //Create a contact
-const createNewContact = (req, res) => {
-    const newContact = {
-        id: data.contacts?.length
-            ? data.contacts[data.contacts.length - 1].id + 1
-            : 1,
-        name: req.body.name,
-        phone: req.body.phone,
-        email: req.body.email,
-        address: req.body.address,
-    }
-    if (!newContact.name || !newContact.phone || !newContact.email) {
+const createNewContact = async (req, res) => {
+    if (!req.body.name || !req.body.phone || !req.body.email) {
         return res
             .status(400)
-            .json({ 'message': "Name, phone, and email are required" });
+            .json({ message: "Name, phone, and email are required" });
     }
-    data.setContacts([...data.contacts, newContact]);
-    res.status(201).json(data.contacts);
+    try {
+        const result = await Member.create({
+            name: req.body.name,
+            phone: req.body.phone,
+            email: req.body.email,
+            address: req.body.address,
+        });
+        res.status(201).json(result);
+    } catch (err) {
+        console.error(err)
+    }
 };
 
 //Update a contact
-const updateContact = (req, res) => {
-    const contact = data.contacts.find(
-        cont => cont.id === parseInt(req.body.id)
-    );
+const updateContact = async (req, res) => {
+   if(!req.body.id){
+    return res.status(400).json({message: 'Id number is required.'});
+   }
+   const member = await Member.findOne({_id: req.body.id})
+
     if (!contact) {
         return res
             .status(400)
-            .json({ 'message': `Contact Id ${req.body.id} is not found.` });
+            .json({ message: `Contact Id # ${req.body.id} is not found.` });
     }
+
     if (req.body.name) contact.name = req.body.name;
     if (req.body.phone) contact.phone = req.body.phone;
     if (req.body.email) contact.email = req.body.email;
     if (req.body.address) contact.address = req.body.address;
-    const filteredArray = data.contacts.filter(
-        cont => cont.id !== parseInt(req.body.id)
-    );
-    const unsortedArray = [...filteredArray, contact];
-    data.setContacts(
-        unsortedArray.sort((a, b) => a.id > b.id ? 1 : a.id < b.id ? -1 : 0)
-    );
-    res.json(data.contacts);
+    
+    const result = await member.save();
+
+    res.json(result);
 };
 
 //Delete a contact
-const deleteContact = (req, res) => {
-    const contact = data.contacts.find(
-        cont => cont.id === parseInt(req.body.id)
-    );
-    if (!contact) {
-        return res
-            .status(400)
-            .json({ 'message': `Contact ID ${req.body.id} is not found.` });
-    };
-    const filteredArray = data.contacts.filter(
-        cont => cont.id !== parseInt(req.body.id)
-    );
-    data.setContacts([...filteredArray]);
-    res.json(data.contacts);
+const deleteContact = async (req, res) => {
+    if(!req.body.id){
+        return res.status(400).json({message: 'Id number is required.'});
+       }
+       const member = await Member.findOne({_id: req.body.id})
+    
+        if (!contact) {
+            return res
+                .status(400)
+                .json({ message: `Contact Id # ${req.body.id} is not found.` });
+        }
+    const result = member.deleteOne({_id: req.body.id});
+        
+    res.json(result);
 };
 
 //Get a contact
-const getContact = (req, res) => {
-    const contact = data.contacts.find(
-        cont => cont.id === parseInt(req.params.id)
-    );
-    if (!contact) {
-        return res.status(400).json({ 'message': `Contact ID ${req.params.id} is not found.` });
+const getContact = async (req, res) => {
+    if(!req.params.id){return res.status(400).json({message: 'Member Id number required.'})}
+    const member = await Member.findOne({_id: req.params.id})
+    if (!member) {
+        return res
+        .status(204)
+        .json({ message: `Contact Id # ${req.params.id} is not found.` });
     }
-    res.json(contact);
+    res.json(member);
 };
 
 module.exports = {

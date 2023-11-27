@@ -24,7 +24,7 @@
   </div>
   <div id="contact-info">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="contacts"></script>
+    <script src="/controllers/contactsController.js"></script>
     <script>
       $(document).ready(function () {
         $.getJSON('http://localhost:3000/contacts', function (data) {
@@ -60,7 +60,7 @@
     </script>
   </div>
   <div class="updates">
-    <form class="contact-form" id="add-contact" action="/contacts" method="POST">
+    <form class="contact-form" id="add-contact" action="/controllers/contactsController.js" method="POST">
       <h2>Add Contact</h2>
       <label for="name">Name:</label>
       <input type="text" name="name" required>
@@ -77,7 +77,7 @@
     <button type="submit" id=add-contact class="button">Add</button> 
     </form>
 
-    <form class="contact-form" id="update-contact" action="/contacts" method="PUT">
+    <form class="contact-form" id="update-contact" action="/controllers/contactsController.js" method="PUT">
       <h2>Update Contact</h2>
       <label for="id">Id</label>
       <input type="text" name="id" required>
@@ -98,7 +98,7 @@
     </form>
 
     
-    <form class="contact-form" id="delete-contact" action="/contacts" method="DELETE">
+    <form class="contact-form" id="delete-contact" action="/controllers/contactsController.js" method="DELETE">
       <h2>Delete Contact</h2>
       <label for="id">Contact ID:</label>
       <input type="text" name="id" required>
