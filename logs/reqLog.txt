@@ -1,0 +1,13 @@
+11-26-2023	09:28:48 	 6dea5c49-abc2-4849-b526-e420abe6c3c4 	 GET 	 undefined 	 / 
+11-26-2023	09:28:48 	 d07af9f3-4d81-4673-a361-e7944d2e205c 	 GET 	 undefined 	 /styles.css 
+11-26-2023	09:28:48 	 eb04172c-cad9-4ad3-b5fb-1dbd909ea018 	 GET 	 undefined 	 /contacts 
+11-26-2023	09:28:48 	 6bfb974f-be2f-492b-981a-23c6b186fcd9 	 GET 	 undefined 	 /contacts 
+11-26-2023	09:28:49 	 35d325d3-6509-488b-b257-4e73cdcb7967 	 GET 	 undefined 	 /favicon.ico 
+11-26-2023	09:28:58 	 82a28738-b087-41fa-90c1-78afe35fc00d 	 POST 	 http://localhost:3000 	 /contacts 
+11-26-2023	09:29:01 	 f12c1b06-b8c2-4b98-872e-6ad8fd6881b0 	 GET 	 undefined 	 /contacts 
+11-26-2023	09:29:44 	 d3349624-2438-4f06-bd5f-a523f805c162 	 GET 	 undefined 	 /contacts?id=4&update-name=&update-phone=&update-email=&update-address=2593+Milton+Lane%2C+Thompsons+Station%2C+TN+37179 
+11-26-2023	09:29:53 	 479991d5-a71e-466d-a1f8-32d1ecfb4f32 	 GET 	 undefined 	 /contacts?id=4 
+11-26-2023	09:29:58 	 e51c746d-1a0b-408c-8d9f-1b12a2c0b7b3 	 GET 	 undefined 	 / 
+11-26-2023	09:29:58 	 a232d3db-5c5c-4cbf-b71f-0a07dab8a684 	 GET 	 undefined 	 /styles.css 
+11-26-2023	09:29:58 	 9f936444-e830-4099-8c09-cd0adff65581 	 GET 	 undefined 	 /contacts 
+11-26-2023	09:29:58 	 5ea1a1de-d81d-4300-b060-bf9173483468 	 GET 	 undefined 	 /contacts 

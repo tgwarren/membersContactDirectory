@@ -8,7 +8,7 @@ const data = {
 //Get all contacts
 const getAllContacts = (req, res) => {
     res.json(data.contacts);
-}
+};
 
 //Create a contact
 const createNewContact = (req, res) => {
@@ -28,7 +28,7 @@ const createNewContact = (req, res) => {
     }
     data.setContacts([...data.contacts, newContact]);
     res.status(201).json(data.contacts);
-}
+};
 
 //Update a contact
 const updateContact = (req, res) => {
@@ -52,7 +52,7 @@ const updateContact = (req, res) => {
         unsortedArray.sort((a, b) => a.id > b.id ? 1 : a.id < b.id ? -1 : 0)
     );
     res.json(data.contacts);
-}
+};
 
 //Delete a contact
 const deleteContact = (req, res) => {
@@ -69,7 +69,7 @@ const deleteContact = (req, res) => {
     );
     data.setContacts([...filteredArray]);
     res.json(data.contacts);
-}
+};
 
 //Get a contact
 const getContact = (req, res) => {
@@ -80,7 +80,7 @@ const getContact = (req, res) => {
         return res.status(400).json({ 'message': `Contact ID ${req.params.id} is not found.` });
     }
     res.json(contact);
-}
+};
 
 module.exports = {
     getAllContacts,
