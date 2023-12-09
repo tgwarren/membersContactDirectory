@@ -43,7 +43,7 @@ const updateMember = async (req, res) => {
   if (!req.body.id) {
     return res.status(400).json({ message: "Id number is required." });
   }
-  const member = await Member.findOne({ _id: req.body.id });
+  const member = await Member.findOne({ _id: req.body.id }).exec();
 
   if (!member) {
     return res
@@ -65,23 +65,23 @@ const updateMember = async (req, res) => {
 //Delete a member
 const deleteMember = async (req, res) => {
   if (!req.body.id) {
-    return res.status(400).json({ message: "Id number is required." });
+    return res.status(400).json({ message: "Member Id number is required." });
   }
-  const member = await Member.findOne({ _id: req.body.id });
+  const member = await Member.findOne({ _id: req.body.id }).exec();
 
   if (!member) {
     return res
       .status(400)
       .json({ message: `Member Id # ${req.body.id} is not found.` });
   }
-  const result = member.deleteOne({ _id: req.body.id });
+  const result = await member.deleteOne();
 
   res.json(result);
 };
 
 //Get a member
 const getMember = async (req, res) => {
-  if (!req?.params?.id) {
+  if (!req.params.id) {
     return res.status(400).json({ message: "Member Id number required." });
   }
 

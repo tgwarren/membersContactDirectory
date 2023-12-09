@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const membersController = require('../../controllers/memberController');
-const validateMembers = require('../../middleware/validateMembers');
 
 
 router.route('/')
@@ -10,9 +9,9 @@ router.route('/')
     .put(membersController.updateMember)
     .delete(membersController.deleteMember);
 
-router.use(validateMembers);
 
-router.route('/members/:id')
+
+router.route('/:id')
     .get(membersController.getMember);
 
 module.exports = router;
