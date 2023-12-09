@@ -1,5 +1,5 @@
 {
-  "name": "contactdirectory",
+  "name": "memberscontactdirectory",
   "version": "1.0.0",
   "description": "An assignment for Backend 2 class",
   "main": "server.js",
@@ -9,20 +9,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tgwarren/contactDirectory.git"
+    "url": "git+https://github.com/tgwarren/membersContactDirectory.git"
   },
   "author": "Tiffany Warren",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tgwarren/contactDirectory/issues"
+    "url": "https://github.com/tgwarren/membersContactDirectory/issues"
   },
-  "homepage": "https://github.com/tgwarren/contactDirectory#readme",
+  "homepage": "https://github.com/tgwarren/membersContactDirectory#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "date-fns": "^2.30.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongoose": "^8.0.1",
     "node.js": "^0.0.1-security",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "uuid": "^9.0.1"
   }
 }

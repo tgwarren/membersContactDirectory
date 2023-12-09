@@ -38,7 +38,7 @@ input {
   box-sizing: border-box;
 }
 
-.contact-details {
+.member-details {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -58,19 +58,19 @@ input {
   text-align: center;
 }
 
-#add-contact {
+#add-member {
   grid-column: 1 / span 2;
 }
 
-#update-contact {
+#update-member {
   grid-column: 3 / span 2;
 }
 
-#delete-contact {
+#delete-member {
   grid-column: 5 / span 2;
 }
 
-.contact-form{
+.member-form{
   padding: 20px;
   max-width: 300px;
   }

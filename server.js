@@ -32,7 +32,7 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 app.use('/', require('./routes/root'));
 
 //API route
-app.use('/contacts', require('./routes/api/contacts'));
+app.use('/members', require('./routes/api/members'));
 
 app.all('*', (req, res) => {
   res.status(404);
@@ -50,7 +50,7 @@ app.use(errorHandler);
 mongoose.connection.once('open', () => {
   console.log('Connected to mongoDB');
   app.listen(PORT, () => {
-    console.log(`Contact Directory is listening on port ${PORT}`)
+    console.log(`Member Directory is listening on port ${PORT}`)
   });
 });
 

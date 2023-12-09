@@ -2,21 +2,24 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const memberSchema = new Schema({
-    name: {
+    parentName: {
         type: String,
-        required: true,
+        required: true
     },
-    phone: {
-        type: Number,
-        required: true,
-    },
-    email: {
+    daughterName: {
         type: String,
-        required: true,
+        required: true
     },
     address: {
         type: String,
-        required: true,
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    phoneNumber: {
+        type: Number,
+        required: true
     },
 })
 
