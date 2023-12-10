@@ -1,6 +1,6 @@
 //Cross-Orgin Resource Sharing(CORS)
 const whiteList = [
-  'https://www.yoursite.com',
+  'https://girlscouttroop2012.netlify.app',
   'http://127.0.0.1:5500',// take out after developement
   'http://localhost:3000', // take out after development
   'http://localhost:4200',
