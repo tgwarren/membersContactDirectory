@@ -3,7 +3,8 @@ const whiteList = [
   'https://www.yoursite.com',
   'http://127.0.0.1:5500',// take out after developement
   'http://localhost:3000', // take out after development
-  'http://localhost:4200'
+  'http://localhost:4200',
+  'http://127.0.0.1:4200',
 ];
 
 const corsOptions = {
