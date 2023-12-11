@@ -6,12 +6,13 @@ const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
 const cors = require('cors');
 const corsOptions = require('./config/corsOptions');
-const connectDB = require('./config/dbConfig');
+const ConnectDB = require('./config/dbConfig');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3000;
 
+
 //ConnectDB
-connectDB();
+ConnectDB();
 
 //Custome Middleware Function
 app.use(logger);
@@ -33,6 +34,7 @@ app.use('/', require('./routes/root'));
 
 //API route
 app.use('/members', require('./routes/api/members'));
+app.use('/events', require('./routes/api/events'));
 
 app.all('*', (req, res) => {
   res.status(404);
