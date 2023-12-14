@@ -9,7 +9,7 @@ const corsOptions = require("./config/corsOptions");
 const ConnectDB = require("./config/dbConfig");
 const mongoose = require("mongoose");
 const multer = require("multer");
-const { s3Upload } = require("./services/s3");
+const s3 = require("./services/s3");
 
 const PORT = process.env.PORT || 3000;
 
@@ -37,6 +37,8 @@ app.use("/", require("./routes/root"));
 //API route
 app.use("/members", require("./routes/api/members"));
 app.use("/events", require("./routes/api/events"));
+app.use("/images", require("./routes/api/images"));
+
 
 // Image Storage
 
@@ -58,13 +60,14 @@ const upload = multer({
 });
 app.post("/upload", upload.array("image"), async (req, res) => {
   try{
-    const results = await s3Upload(req.files);
+    const results = await s3.s3Upload(req.files);
     console.log(results);
     res.json({ status: "Success" });
   }catch(err){
     console.error(err);
   }
 });
+
 
 app.use((error, req, res, next) => {
   if (error instanceof multer.MulterError) {
