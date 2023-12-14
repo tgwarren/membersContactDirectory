@@ -11,7 +11,11 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const s3 = require("./services/s3");
 
+//environment variables
+
 const PORT = process.env.PORT || 3000;
+const nodeEnv = process.env.NODE_ENV;
+const mySetting = process.env.MY_SETTING;
 
 //ConnectDB
 ConnectDB();
